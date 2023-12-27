@@ -1,0 +1,20 @@
+#pip install -r requirements.txt
+keras
+tensorflow
+pillow
+matplotlib
+scikit-learn
+opencv-python
+torch
+torchvision
+flask
+tqdm
+pixelmatch
+mahotas
+ftfy
+regex
+transformers
+skimage
+scikit-image
+colormath
+git+https://github.com/openai/CLIP.git
