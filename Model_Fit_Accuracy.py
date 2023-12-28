@@ -103,8 +103,8 @@ def Model_Fit_Accuracy(storage_vector_path,path_image,model,feat_extractor):
     return round(similarity_max,2)
 
 if __name__ == '__main__':
-    storage_vector_path = 'criteria_files/SP343846100TEST_1.npy'
-    path_image ='criteria_images/SP343846100TEST_1/'
+    storage_vector_path = 'criteria_files/SPTESTSTYLETEST_2.npy'
+    path_image ='criteria_images/SPTESTSTYLETEST_2/'
     model = keras.applications.ResNet50(weights='imagenet', include_top=False)
     feat_extractor = Model(inputs=model.input, outputs=model.layers[-1].output)
     Model_Fit_Accuracy(storage_vector_path,path_image,model,feat_extractor)

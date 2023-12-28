@@ -16,8 +16,9 @@ from numpy import savetxt, loadtxt, load, save
 from keras.preprocessing.image import ImageDataGenerator
 ######### kHAI BÁO fILE LIÊN KẾT  ################
 from Model_Fit_Accuracy import Model_Fit_Accuracy
+from Model_Fit_2_Image import Model_Fit_2_Image
 
-from tf_create_image import main_tf_create
+from Model_Create_Criteria import Create_Criteria
 ######### kHAI BÁO fILE LIÊN KẾT  ################
 
 
@@ -46,7 +47,7 @@ def main_check_criteria(type_data,info_criteria_data,model,feat_extractor):
             image_path_1 = path + 'criteria_images/' + info_criteria_data+ '/Criteria_1.jpg'
             output_directory = path + 'criteria_images/' + info_criteria_data+ '/Criteria/'
 
-            check = main_tf_create(image_path,image_path_1,output_directory,storage_vector_path,model,feat_extractor)
+            check = Create_Criteria(image_path,image_path_1,output_directory,storage_vector_path,model,feat_extractor)
 
             #tạo ra 1 file đó 
             #Argument_criteria_create(storage_vector_path,storage_image_path)
@@ -61,7 +62,11 @@ def main_check_criteria(type_data,info_criteria_data,model,feat_extractor):
 
             similarity_max = Model_Fit_Accuracy(storage_vector_path,path_image,model,feat_extractor)
 
-            return True,round(similarity_max,2)
+            similarity_1 = Model_Fit_2_Image(path_image,model)
+            if (float(similarity_1) >= float(similarity_max)):
+                return True,round(similarity_1,2)
+            else:
+                return True,round(similarity_max,2)
     except:
         return False,0
 

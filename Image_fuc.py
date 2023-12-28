@@ -38,6 +38,7 @@ def main_task(type_data,info_criteria_data,model,feat_extractor,device_torch,mod
 
             check_vgg16,percentage_vgg16 = main_check_criteria(type_data,info_criteria_data,model,feat_extractor)
             avgvgg = float(percentage_vgg16)
+
             print(" ------------------------- VGG16 .NPY  -------------------------")
             print(check_vgg16,percentage_vgg16)
             print(" ------------------------- VGG16 .NPY-------------------------")

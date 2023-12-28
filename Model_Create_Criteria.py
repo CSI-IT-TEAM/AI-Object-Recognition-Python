@@ -14,7 +14,7 @@ import time
 from Check_KMeans_colors import KMeans_1colors
 ######### kHAI BÁO fILE LIÊN KẾT  ################
 
-def main_tf_create(image_path,image_path_1,output_directory,storage_vector_path,model,feat_extractor):
+def Create_Criteria(image_path,image_path_1,output_directory,storage_vector_path,model,feat_extractor):
     # Đường dẫn đến ảnh gốc
     try:
         os.makedirs(output_directory, exist_ok=True)
@@ -96,7 +96,7 @@ if __name__ == '__main__':
         storage_vector_path = 'criteria_files/SP319116011TEST_1.npy'
         model = keras.applications.ResNet50(weights='imagenet', include_top=False)
         feat_extractor = Model(inputs=model.input, outputs=model.layers[-1].output)
-        value = main_tf_create(image_path,image_path_1,output_directory,storage_vector_path,model,feat_extractor)
+        value = Create_Criteria(image_path,image_path_1,output_directory,storage_vector_path,model,feat_extractor)
         print(value)
     except:
         pass
